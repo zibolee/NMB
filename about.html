@@ -1,0 +1,198 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="css/animation.css">
+<link rel="stylesheet" href="css/index.css">
+<script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+<title>联系我们</title>
+<style type="text/css">
+header{
+	background-color:#CF6;
+	margin:10px;
+	list-style:none;
+	}
+li{
+	text-align:left;
+	font-family:"华文行楷";
+	font-size:24px;
+	padding-bottom:10px;
+	padding-top:10px;
+	float:left;
+	}
+li a{
+	text-decoration:none;
+	color:#000;
+	}
+h5{
+	text-align: center;
+	padding-bottom:10px;
+	padding-top:10px;
+	font-size:24px;
+	font-family:"华文行楷";
+	}
+#contact{
+	}
+
+#footer{
+	width: 100%;
+	overflow: hidden;
+	background: #CF9;
+	margin-top: 150px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	color: #000;
+}
+#footer p{
+	padding-left: 480px;
+	color: #000;
+}
+.box{
+	text-align;
+	}
+header{
+	margin-top:30px;
+	}
+	body {
+	background-color: #FF9;
+}
+.u1{
+	margin-left:200px;
+	height:50px;
+	}
+.u2{
+	margin-left:200px;
+	background-color:#0FF;
+	color:#FC6;
+	}
+#contact{
+	height:800px;
+	}
+.box1{
+	margin-top:100px;
+	}
+#contact1{
+	background-color:#6FF;
+	}
+</style>
+<script type="text/javascript">
+    function b(){
+        h = $(window).height();
+        t = $(document).scrollTop();
+        if(t > h){
+            $('#gotop').show();
+        }else{
+            $('#gotop').hide();
+        }
+    }
+    $(document).ready(function(e) {
+
+        b();
+
+        $('#gotop').click(function(){
+            $(document).scrollTop(0);
+        });
+
+        $('#code').hover(function(){
+            $(this).attr('id','code_hover');
+            $('#code_img').show();
+            $('#code_img').addClass('a-fadeinL');
+        },function(){
+            $(this).attr('id','code');
+            $('#code_img').hide();
+        })
+
+    });
+
+    $(window).scroll(function(e){
+        b();
+    });
+    function b(){
+        h = $(window).height();
+        t = $(document).scrollTop();
+        if(t > h){
+            $('#gotop').show();
+        }else{
+            $('#gotop').hide();
+        }
+    }
+    $(document).ready(function(e) {
+
+        b();
+
+        $('#gotop').click(function(){
+            $(document).scrollTop(0);
+        });
+
+        $('#code').hover(function(){
+            $(this).attr('id','code_hover');
+            $('#code_img').show();
+            $('#code_img').addClass('a-fadeinL');
+        },function(){
+            $(this).attr('id','code');
+            $('#code_img').hide();
+        })
+
+    });
+
+    $(window).scroll(function(e){
+        b();
+    });
+</script>
+<body>
+<header>
+<li><a href="index.html">返回首页</a></li>
+  <h5>联系我们</h5>
+</header>
+<div  id="contact" class="box">
+<form method="post" action="#" class="box1">
+<div class="u1">
+<div class="u1">
+<input type="text" name="name" id="name" value="" placeholder="姓名" />
+</div>
+<div class="u1">
+<input type="email" name="email" id="email" value="" placeholder="Email" />
+</div>
+</div>
+<div class="u1">
+<div class="u1">
+<input type="text" name="subject" id="subject" value="" placeholder="联系方式" />
+</div>
+</div>
+<div class="u1">
+<div class="u1">
+<textarea name="message" id="message" placeholder="意见与反馈" rows="6"></textarea>
+</div>
+</div>
+<div class="u1">
+<div class="u1">
+<ul class="u2">
+<li><input type="submit" value="发送信息" /></li>
+</ul>
+</div>
+</div>
+</form>
+<div id="contact1">
+<table width="300" border="0">
+  <tr>
+    <td colspan="2">友情链接</td>
+    </tr>
+  <tr>
+    <td>百度</td>
+    <td>腾讯</td>
+  </tr>
+  <tr>
+    <td>阿里巴巴</td>
+    <td>哔哩哔哩</td>
+  </tr>
+</table>
+</div>
+</div>
+<div id="code"></div>
+<div id="code_img"></div>
+<a id="gotop" href="javascript:void(0)"><img src="images/fhjt.png" alt=""/></a>
+<div id="footer">
+<p>COPYRIGHT &copy; 2020.</p>
+</div>
+</body>
+</html>

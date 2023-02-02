@@ -1,0 +1,321 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>新媒体简介</title>
+<style type="text/css">
+body{
+	background-color:#FFC;
+	}
+header{
+	height:50px;
+	background-color:#CF6;
+	margin:30px;
+	}
+li{
+	text-align:left;
+	font-family:"华文行楷";
+	font-size:24px;
+	padding-bottom:10px;
+	padding-top:10px;
+	float:left;
+	}
+li a{
+	text-decoration:none;
+	color:#000;
+	}
+li h1{
+	text-align: center;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	}
+#banner{
+	margin:30px;
+	height:500px;
+	background-color:#FFF;
+	padding-top:50px;
+	}
+ul,li {list-style: none;}
+a {text-decoration: none;color: black;}
+.box{width: 800px;height: 450px;margin: 20px auto;overflow: hidden;position: relative;}
+.box-1 ul{}
+.box-1 ul li{width: 800px;height: 400px;position: relative;overflow: hidden;}
+.box-1 ul li img{display:block;width: 800px; height: 400px;}
+.box-1 ul li h2{position: absolute;left: 0;bottom: 0;height: 40px;width:300px;background: rgba(125,125,120,.4);text-indent: 2em;
+				padding-right:500px ;font-size: 15px;line-height: 40px;text-overflow: ellipsis;overflow: hidden;
+				white-space: nowrap;font-weight: normal;color: ghostwhite}
+.box-2{position: absolute;right: 10px;bottom: 14px;}
+.box-2 ul li{float:left;width: 12px;height: 12px;overflow: hidden; margin: 0 5px; border-radius: 50%;
+				background: rgba(0,0,0,0.5);text-indent: 100px;cursor: pointer;}
+.box-2 ul .on{background: rgba(255,255,255,0.6);}
+.box-3 span{
+	position: absolute;
+	color: white;
+	background: rgba(125,125,120,.3);
+	width: 50px;
+	height: 80px;
+	top: 194px;
+	font-family: "宋体";
+	line-height: 80px;
+	font-size: 60px;
+	margin-top: -40px;
+	text-align: center;
+	cursor: pointer;
+}
+.box-3 .prev{
+	left: 43px;
+}
+.box-3 .next{
+	right: 1px;
+}
+.box-3 span::selection{background: transparent;}
+.box-3 span:hover{background: rgba(125,125,120,.8);}
+#contact{
+	height:500px;
+	background-color:#FFF;
+	margin:30px;
+	}
+
+#contact h1{
+	text-align:center;
+	margin:20px;
+	}
+#contact ul li{
+	list-style:none;
+	padding:20px;
+	margin:20px;
+	width:350px;
+	background-color:#FF6;
+	float:left;
+	}
+footer{
+	background-color:#3CF;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	text-align: center;
+	margin-right: 30px;
+	margin-left: 30px;
+	}
+
+#apDiv1 {
+	position: absolute;
+	left: 39px;
+	top: 741px;
+	width: 130px;
+	height: 26px;
+	z-index: 1;
+	font-size: 20px;
+	background: #0CC;
+}
+,ys01{
+	margin-left:300px;
+	margin-right:300px;
+	}
+#nav{
+	height: 80px;
+	padding:5px;
+	background-color:#39F;
+	margin:30px;
+	}
+#nav ul{
+	}
+#nav ul li{
+	list-style: none;
+	float: right;
+	text-align: center;
+	height: 30px;
+	width: 120px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	font-family: "华文行楷";
+	font-size: 24px;
+	padding-left: 20px;
+	}
+#nav ul li a{
+	text-decoration: none;
+	color: #FFF;
+	}
+#nav ul li a:link{
+	}
+#nav ul li a:hover{
+	background-color: #0CC;
+	width: 40px;
+	}
+#apDiv2 {
+	position: absolute;
+	left: 41px;
+	top: 781px;
+	width: 127px;
+	height: 31px;
+	z-index: 2;
+		font-size: 20px;
+	background: #0CC;
+}
+</style>
+<script type="text/javascript">
+//图片展播特效脚本
+window.onload = function(){
+	function $(param){
+		if(arguments[1] == true){
+			return document.querySelectorAll(param);
+		}else{
+			return document.querySelector(param);
+		}
+	}
+	var $box = $(".box");
+	var $box1 = $(".box-1 ul li",true);
+	var $box2 = $(".box-2 ul");
+	var $box3 = $(".box-3");
+	var $length = $box1.length;
+	
+	var str = "";
+	for(var i =0;i<$length;i++){
+		if(i==0){
+			str +="<li class='on'>"+(i+1)+"</li>";
+		}else{
+			str += "<li>"+(i+1)+"</li>";
+		}
+	}
+	$box2.innerHTML = str;
+	
+	var current = 0;
+	
+	var timer;
+	timer = setInterval(go,3000);
+	function go(){
+		for(var j =0;j<$length;j++){
+			$box1[j].style.display = "none";
+			$box2.children[j].className = "";
+		}
+		if($length == current){
+			current = 0;
+		}
+		$box1[current].style.display = "block";
+		$box2.children[current].className = "on";
+		current++;
+	}
+	
+	for(var k=0;k<$length;k++){
+		$box1[k].onmouseover = function(){
+			clearInterval(timer);
+		}
+		$box1[k].onmouseout = function(){
+			timer = setInterval(go,1000);
+		}
+	}
+	for(var p=0;p<$box3.children.length;p++){
+		$box3.children[p].onmouseover = function(){
+			clearInterval(timer);
+		};
+		$box3.children[p].onmouseout = function(){
+			timer = setInterval(go,1000);
+		}
+	}
+	
+	for(var u =0;u<$length;u++){
+		$box2.children[u].index  = u;
+		$box2.children[u].onmouseover = function(){
+			clearInterval(timer);
+			for(var j=0;j<$length;j++){
+				$box1[j].style.display = "none";
+				$box2.children[j].className = "";
+			}
+			this.className = "on";
+			$box1[this.index].style.display = "block";
+			current = this.index +1;
+		}
+		$box2.children[u].onmouseout = function(){
+			timer = setInterval(go,1000);
+		}
+	}
+	
+	$box3.children[0].onclick = function(){
+		back();
+	}
+	$box3.children[1].onclick = function(){
+		go();
+	}
+	function back(){
+		for(var j =0;j<$length;j++){
+			$box1[j].style.display = "none";
+			$box2.children[j].className = "";
+		}
+		if(current == 0){
+			current = $length;
+		}
+		$box1[current-1].style.display = "block";
+		$box2.children[current-1].className = "on";
+		current--;
+	}
+}
+</script>
+</head>
+
+<body>
+<div id="apDiv1"><a href="words/新媒体简介.docx">下载完整文档</a></div>
+<div id="apDiv2"><a href="mian.html">查看更多</a></div>
+<div id="nav">
+<ul>
+<li><a href="about.html">关于我们</a></li>
+<li><a href="404.html">报错页面</a></li>
+<li><a href="text2.html">运营攻略</a></li>
+<li><a href="text1.html">新媒体简介</a></li>
+<li><a href="login.html">登录</a></li>
+<li><a href="index.html">首页</a></li>
+</ul>
+</div>
+<div id="banner">
+<div class="box">
+	<div class="box-1">
+		<ul>
+			<li>
+				<img src="images/image1/find-place3.jpg" alt="这里是第一场图片"></img>
+				<h2>关于旅行的自媒体</h2>
+			</li>
+			<li>
+				<img src="images/image1/featured4.jpg" alt="这里是第二张图片"></img>
+				<h2>关于美食类自媒体</h2>
+			</li>
+			<li>
+				<img src="images/image1/find-place4.jpg" alt="这里是第三张图片"></img>
+				<h2>关于生活类自媒体</h2>
+			</li>
+			<li>
+				<img src="images/image1/reserve-slide3.jpg" alt="这里是第一场图片"></img>
+				<h2>关于酒水类自媒体</h2>
+			</li>
+			<li>
+				<img src="images/image1/find-place5.jpg" alt="这里是第一场图片"></img>
+				<h2>关于文化类自媒体</h2>
+			</li>
+		</ul>
+	</div>
+	<div class="box-2">
+		<ul>
+			
+		</ul>
+	</div>
+	<div class="box-3">
+		<span class="prev"> < </span>
+		<span class="next"> > </span>
+	</div>
+</div>
+</div>
+<div id="contact">
+<h1>什么是新媒体？</h1>
+<ul>
+<li>新媒体
+ （媒体形态的一种）
+新媒体是利用数字技术，通过计算机网络、无线通信网、卫星等渠道，以及电脑、手机、数字电视机等终端，向用户提供信息和服务的传播形态。从空间上来看，“新媒体”特指当下与“传统媒体”相对应的，以数字压缩和无线网络技术为支撑，利用其大容量、实时性和交互性，可以跨越地理界线最终得以实现全球化的媒体。</li>
+<li>起源
+中文的“新媒体”一词是英文“New Media”的直接翻译，“新媒体”的起源从“New Media”一词的来源说起。“新媒体”作为传播媒介的一个专有术语，最早是由美国P.戈尔德马克的人提出来的。他在1967年发表了关于开发EVR商品的计划里他第一次提出了“新媒体”一词之后，E.罗斯托,他多处使用“New Media”之后，“新媒体”流行世界，</li>
+<li>含义
+广义的新媒体包括两大类：一是基于技术进步引起的媒体形态的变革，尤其是基于无线通信技术和网络技术出现的媒体形态，如数字电视、IPTV（交互式网络电视）、手机终端等；二是随着人们生活方式的转变，以前已经存在，现在才被应用于信息传播的载体，例如楼宇电视、车载电视等。狭义的新媒体仅指第一类，基于技术进步而产生的媒体形态。</li>
+</ul>
+
+</div>
+<footer>
+  <h3>版权所属&copy;</h3>
+</footer>
+</body>
+</html>
